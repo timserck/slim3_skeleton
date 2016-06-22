@@ -38,10 +38,8 @@ $app->get('/', function (Request $request, Response $response) {
         'description' => 'description',
 
     );
+    return $this->view->render($response, '/home.php', compact('meta', 'router'));
 
-    $lorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
-
-    return $this->view->render($response, '/home.php', compact('meta', 'lorem', 'router'));
 })->setName('home');
 
 $app->get('/buy', function (Request $request, Response $response) {
@@ -56,9 +54,90 @@ $app->get('/buy', function (Request $request, Response $response) {
     return $this->view->render($response, '/buy.php', compact('meta', 'router'));
 })->setName('buy');
 
+
+$app->get('/about', function (Request $request, Response $response) {
+    $router = $this->router;
+    $meta =
+    array(
+        'title' => 'about',
+        'description' => 'description about',
+    );
+
+
+    return $this->view->render($response, '/about.php', compact('meta', 'router'));
+})->setName('about');
+
+
+
+$app->get('/dej', function (Request $request, Response $response) {
+    $router = $this->router;
+    $meta =
+    array(
+        'title' => 'dej',
+        'description' => 'description dej',
+    );
+
+
+    return $this->view->render($response, '/dej.php', compact('meta', 'router'));
+})->setName('dej');
+
+$app->get('/traiteur', function (Request $request, Response $response) {
+    $router = $this->router;
+    $meta =
+    array(
+        'title' => 'traiteur',
+        'description' => 'description traiteur',
+    );
+
+
+    return $this->view->render($response, '/traiteur.php', compact('meta', 'router'));
+})->setName('traiteur');
+
+
+$app->get('/dessert', function (Request $request, Response $response) {
+    $router = $this->router;
+    $meta =
+    array(
+        'title' => 'dessert',
+        'description' => 'description dessert',
+    );
+
+
+    return $this->view->render($response, '/dessert.php', compact('meta', 'router'));
+})->setName('dessert');
+
+$app->get('/contact', function (Request $request, Response $response) {
+    $router = $this->router;
+    $meta =
+    array(
+        'title' => 'contact',
+        'description' => 'description contact',
+    );
+
+
+    return $this->view->render($response, '/contact.php', compact('meta', 'router'));
+})->setName('contact');
+
+
+$app->get('/panier', function (Request $request, Response $response) {
+    $router = $this->router;
+    $meta =
+    array(
+        'title' => 'panier',
+        'description' => 'description panier',
+    );
+
+
+    return $this->view->render($response, '/panier.php', compact('meta', 'router'));
+})->setName('panier');
+
+
+
+
+
     $app->get('/products', function (Request $request, Response $response) use ($connexion) {
         $products = list_products($connexion);
         return $response->withJson($products, 201);
-    })->setName('buy');;
+    })->setName('products');
 
 $app->run();

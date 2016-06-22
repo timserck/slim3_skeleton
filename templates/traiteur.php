@@ -1,3 +1,3 @@
 <?php include_once 'head.php'; ?>
-  home
+traiteur
 <?php include_once 'footer.php'; ?>

@@ -1,3 +1,3 @@
 <?php include_once 'head.php'; ?>
-  home
+about
 <?php include_once 'footer.php'; ?>
